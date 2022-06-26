@@ -1,9 +1,3 @@
-# Health Management System
-#For Each client create two seperate file one each for his dit and exercise with date and time at its begining in a logbook(file)
-#if it exist then you need not to craete another file each time update in the exixting file else do the above
-#try to catch all the error
-# Write a function that when executed takes as input the (activity{log,retrive}),(client name), (file type{diet,exercise})
-
 def getdate():
     import datetime
     return  datetime.datetime.now()
