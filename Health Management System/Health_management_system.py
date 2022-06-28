@@ -5,31 +5,33 @@ def getdate():
 
 def HMS_L():
     a = input("Enter the client name:")
-    b = input("Enter the diet-D or exercise-E:")
+    a = a.lower()
+    b = input("Enter D-for diet or E-for exercise:")
     if b=="D":
         z = "diet"
     else:
         z = "exercise"
     try:
-        with open(f"{a}.{b}.txt","x") as f:
+        with open(f"{a}.{z}.txt","x") as f:
             y  = input(f"Enter the {z} for {a}: ")
             f.write(f"[{getdate()}] {y}\n")
     except:
-        with open(f"{a}.{b}.txt","a") as f:
+        with open(f"{a}.{z}.txt","a") as f:
             y = input(f"Enter the {z} for {a}: ")
             f.write(f"[{getdate()}] {y}\n")
 
 
 def HMS_R():
     a = input("Enter the client name:")
-    b = input("Enter the diet-D or exercise-E:")
+    a = a.lower()
+    b = input("Enter D-for diet or E-for exercise:")
     if b=="D":
         z = "diet"
     else:
         z = "exercise"
     try:
-        with open(f"{a}.{b}.txt","r") as f:
-            print(f.read())
+        with open(f"{a}.{z}.txt") as op:
+            print(op.read())
     except:
         print(f"No history found for {a}'s {z}. Please create a file first")
 
@@ -39,7 +41,7 @@ def HMS(n):
     x = input("What do you want from HMS to:\n for Log Press {L}\n for retrive press {R}\n")
     if x == "L":
         HMS_L()
-        print("Data Has been entered Sucessfully")
+        print("Data Has been entered Sucessfully\n")
         rerun(n)
     elif x =="R":
         HMS_R()
@@ -60,6 +62,5 @@ def rerun(n):
             HMS(n)
         else:
             print("Thanks for Using HMS")
-
 
 HMS(0)
